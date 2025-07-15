@@ -1,0 +1,3 @@
+Protocol:A protocol is a set of rules or standard procedures that define how data is transmitted and received between devices or systems over a network.
+
+Domain:A domain (in networking or web terms) is a human-readable name that represents an IP address where a website or service is hosted.
