@@ -5,6 +5,18 @@ const app=  express();
 
 const port = 3000;
 app.use(express.urlencoded({extended:false}));
+
+app.use((req,res,next)=>{
+    console.log("Middle ware 1");
+    next()
+    
+})
+
+app.use((req,res,next)=>{
+    console.log("Middle ware 2");
+     return res.json({status:"middleware 2"});
+    
+})
 //Routes
 app.get('/api/users',(req,res)=>{
     res.json(users);
