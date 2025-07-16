@@ -1,0 +1,9 @@
+MongoDb
+
+No sql document based database
+
+strong support for aggregation pipes
+
+works on bson format
+
+best for node applications
