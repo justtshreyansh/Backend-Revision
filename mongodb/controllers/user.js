@@ -4,7 +4,8 @@ const  express =require('express');
 
 const getUser = async (req,res)=>{
     const result = await User.find();
-    return res.status(200).json(result)
+    // return res.status(200).json(result)
+    res.render('home',{message:"message",user:"shreyansh"}); //rendering the ejs page
 }
 const postUser = async (req,res)=>{
     const body = req.body;
