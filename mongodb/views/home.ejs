@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <% if(locals.message){%>
+    <% if(locals.message && locals.user){%>
         <h1><%=locals.message+ " " +  locals.user%></h1>
     <%}%>
 </body>

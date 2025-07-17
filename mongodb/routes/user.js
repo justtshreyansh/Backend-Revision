@@ -9,7 +9,9 @@ const {getUser, postUser, getUserById, patchUser} = require('../controllers/user
 router.get('/users',getUser);
 
 router.post('/users',postUser);
-
+router.get('/signup',(req,res)=>{
+    return res.render('signup');
+})
 router.get('/users/:id',getUserById);
 
 router.patch('/users/:id',patchUser)
