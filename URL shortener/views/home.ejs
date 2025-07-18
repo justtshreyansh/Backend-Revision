@@ -23,7 +23,8 @@
         </form>
     </div>
     <div>
-        <table>
+        <% if (urls) { %>
+         <table>
             <thead>
                 <th>S.No</th>
                 <th>ShortID</th>
@@ -50,6 +51,7 @@
                     <% }) %>
             </tbody>
         </table>
+        <% } %>
     </div>
 </body>
 

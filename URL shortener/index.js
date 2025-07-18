@@ -1,8 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path')
+const cookieParser = require('cookie-parser');
 const urlRouter = require('./routes/url')
-const staticRoute = require('./routes/staticRoutes')
+const staticRoute = require('./routes/staticRoutes');
+const userRoute = require('./routes/user');
+const {restrictUserToLoggedIn,checkAuth} = require('./middlewares/auth')
 const URL = require('./models/url')
 const app = express();
 
@@ -14,8 +17,10 @@ app.set('viwes',path.resolve('./views'));
 
 app.use(express.json())
 app.use(express.urlencoded({extended:false}));
-app.use('/url',urlRouter);
-app.use('/',staticRoute)
+app.use(cookieParser());
+app.use('/url',restrictUserToLoggedIn,urlRouter);
+app.use('/',checkAuth,staticRoute);
+app.use('/users',userRoute);
 app.get('/url/:shortId',async(req,res)=>{
     const shortId =req.params.shortId;
     const entry = await URL.findOneAndUpdate({
